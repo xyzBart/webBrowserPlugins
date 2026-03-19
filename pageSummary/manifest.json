@@ -1,0 +1,32 @@
+{
+  "manifest_version": 2,
+  "name": "Page Summary - LinkedIn Job Info",
+  "version": "1.0",
+  "description": "Shows key company info from LinkedIn job pages in the Firefox sidebar",
+  "permissions": [
+    "activeTab",
+    "tabs"
+  ],
+  "sidebar_action": {
+    "default_title": "Job Summary",
+    "default_panel": "sidebar.html",
+    "default_icon": "icon.svg"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.linkedin.com/jobs/view/*",
+        "https://www.linkedin.com/jobs/search/*"
+      ],
+      "js": ["extractor.js", "content.js"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "page-summary@local",
+      "strict_min_version": "109.0"
+    }
+  }
+}

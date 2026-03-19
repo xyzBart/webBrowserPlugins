@@ -1,0 +1,19 @@
+{
+  "name": "pagesummary",
+  "version": "1.0.0",
+  "description": "",
+  "main": "content.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node --test test/extractor.test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "jsdom": "^29.0.0"
+  }
+}

@@ -20,6 +20,63 @@ Recruiter detection matches industry/company name/poster title against keywords:
 | `sidebar.js` | Runs in the sidebar panel — queries active tab, renders results |
 | `sidebar.html/css` | Sidebar UI |
 
+## Build and install on Ubuntu 24
+
+### Prerequisites
+
+```bash
+npm install --global web-ext
+```
+
+### Build
+
+```bash
+cd /home/uzer/repos/webBrowserPlugins/pageSummary
+web-ext build --overwrite-dest
+# produces: web-ext-artifacts/page_summary_-_linkedin_job_info-1.0.zip
+```
+
+### Install
+
+Regular Firefox (snap) on Ubuntu 24 **does not allow unsigned extensions** — `xpinstall.signatures.required` is enforced at the binary level regardless of `about:config`. Two working options:
+
+**Option A — Firefox Developer Edition (recommended for local/personal use)**
+
+Developer Edition genuinely supports unsigned extensions.
+
+```bash
+cd ~/Downloads
+wget "https://download.mozilla.org/?product=firefox-devedition-latest-ssl&os=linux64&lang=en-US" -O firefox-dev.tar.bz2
+tar xf firefox-dev.tar.bz2
+mv firefox ~/progs/firefox-dev
+~/progs/firefox-dev/firefox &
+```
+
+Then in Developer Edition:
+1. `about:config` → set `xpinstall.signatures.required` to `false`
+2. `about:addons` → gear icon → **Install Add-on From File**
+3. Select `web-ext-artifacts/page_summary_-_linkedin_job_info-1.0.zip`
+
+Developer Edition runs independently from regular Firefox with its own profile.
+
+**Option B — Sign via Mozilla AMO (works in any Firefox)**
+
+Produces a properly signed `.xpi` that installs in any Firefox without any config changes.
+
+1. Create an account on `addons.mozilla.org`
+2. Go to **Developer Hub → Manage API Keys** and generate JWT issuer + secret
+3. Run:
+
+```bash
+web-ext sign --api-key=<JWT_issuer> --api-secret=<secret> --channel=unlisted
+```
+
+Mozilla signs it automatically (no review for unlisted/self-distributed add-ons) and downloads the signed `.xpi` into `web-ext-artifacts/`. Install via `about:addons` → gear → **Install Add-on From File**.
+
+### After installing
+
+Open the sidebar via **View → Sidebar → Job Summary**, then navigate to any LinkedIn job page.
+
 ## Running tests
 
 ```bash

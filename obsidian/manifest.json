@@ -1,0 +1,9 @@
+{
+  "id": "open-terminal",
+  "name": "Open Terminal",
+  "version": "1.0.0",
+  "minAppVersion": "0.15.0",
+  "description": "Adds 'Open Terminal' to the file explorer context menu.",
+  "author": "local",
+  "isDesktopOnly": true
+}

@@ -1,16 +1,24 @@
 {
   "manifest_version": 2,
-  "name": "Page Summary - LinkedIn Job Info",
+  "name": "MyExt",
   "version": "1.0",
-  "description": "Shows key company info from LinkedIn job pages in the Firefox sidebar",
+  "description": "Personal Firefox extension: LinkedIn job sidebar info, YouTube playlist thumbnail view, and YouTube search across bookmarks/history",
   "permissions": [
     "activeTab",
-    "tabs"
+    "tabs",
+    "bookmarks",
+    "history",
+    "storage"
   ],
   "sidebar_action": {
     "default_title": "Job Summary",
     "default_panel": "sidebar.html",
     "default_icon": "icon.svg"
+  },
+  "browser_action": {
+    "default_title": "MyExt",
+    "default_popup": "popup.html",
+    "default_icon": "yt-icon.svg"
   },
   "content_scripts": [
     {
@@ -25,7 +33,7 @@
   ],
   "browser_specific_settings": {
     "gecko": {
-      "id": "page-summary@local",
+      "id": "myext@local",
       "strict_min_version": "109.0"
     }
   }

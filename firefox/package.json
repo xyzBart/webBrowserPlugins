@@ -1,5 +1,5 @@
 {
-  "name": "pagesummary",
+  "name": "myext",
   "version": "1.0.0",
   "description": "",
   "main": "content.js",
@@ -7,7 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "node --test test/extractor.test.js"
+    "test": "node --test test/extractor.test.js",
+    "dev": "web-ext run --firefox-binary ~/progs/firefox/firefox --firefox-profile ~/.config/mozilla/firefox/pd3e6zqc.dev-edition-default --keep-profile-changes"
   },
   "keywords": [],
   "author": "",

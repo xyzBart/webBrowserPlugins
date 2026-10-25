@@ -1,0 +1,90 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #0f0f0f;
+  color: #f1f1f1;
+  font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background: #181818;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+header select,
+header input {
+  background: #121212;
+  color: #f1f1f1;
+  border: 1px solid #3a3a3a;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 14px;
+}
+
+header select {
+  min-width: 260px;
+}
+
+header input {
+  flex: 1;
+  max-width: 480px;
+}
+
+header .count {
+  color: #aaa;
+  font-size: 13px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  padding: 16px;
+}
+
+.card {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  background: #181818;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.card:hover {
+  outline: 2px solid #ff0000;
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  background: #000;
+}
+
+.card .title {
+  padding: 8px 10px;
+  font-size: 13px;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.empty {
+  padding: 40px;
+  text-align: center;
+  color: #888;
+}

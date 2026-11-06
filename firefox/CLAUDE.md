@@ -1,12 +1,13 @@
 # MyExt — personal Firefox extension
 
-Single Firefox extension (manifest name "MyExt", gecko id `myext@local`) bundling three personal features in one install:
+Single Firefox extension (manifest name "MyExt", gecko id `myext@local`) bundling four personal features in one install:
 
 - **LinkedIn job sidebar** — `sidebar_action`, content scripts injected on `linkedin.com/jobs/*`. Extracts company/recruiter info from the DOM (`extractor.js` + `content.js`), rendered in `sidebar.html`/`sidebar.js`.
 - **YT playlist thumbnails** (`playlist.html`/`playlist.js`) — pick a bookmark folder from a dropdown, shows its YouTube video bookmarks as a full-tab thumbnail grid. Last-selected folder persists via `browser.storage.local`.
+- **YT browse** (`browse.html`/`browse.js`) — the whole bookmark folder tree rendered on the left (all folders, nested, no filtering), clicking a folder shows its direct YouTube video children as a thumbnail grid on the right. Same idea as the playlist dropdown but navigable as a tree; last-selected folder persists separately (`lastBrowseFolderId`).
 - **YT search across bookmarks + history** (`search.html`/`search.js`) — same thumbnail grid, filterable by a search box, sourced from all bookmarked + visited YouTube videos.
 
-The two YT pages are reached via the `browser_action` toolbar popup (`popup.html`); the LinkedIn feature uses the native sidebar. Shared YT helpers/styles live in `yt-common.js` / `yt-style.css` (named with a `yt-` prefix to avoid clashing with the LinkedIn feature's `common`-style filenames).
+The three YT pages are reached via the `browser_action` toolbar popup (`popup.html`); the LinkedIn feature uses the native sidebar. Shared YT helpers/styles live in `yt-common.js` / `yt-style.css` (named with a `yt-` prefix to avoid clashing with the LinkedIn feature's `common`-style filenames).
 
 This directory used to be `pageSummary/` (LinkedIn-only). It was renamed to `firefox/` and the extension renamed to MyExt when the YT features were merged in — single extension, not separate ones, since it's all personal/no-store use and extra manifests just add config overhead.
 

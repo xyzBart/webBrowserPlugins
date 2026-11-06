@@ -4,4 +4,5 @@ function openPage(page) {
 }
 
 document.getElementById("playlist").addEventListener("click", () => openPage("playlist.html"));
+document.getElementById("browse").addEventListener("click", () => openPage("browse.html"));
 document.getElementById("search").addEventListener("click", () => openPage("search.html"));

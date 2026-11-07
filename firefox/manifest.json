@@ -10,6 +10,9 @@
     "history",
     "storage"
   ],
+  "background": {
+    "scripts": ["background.js"]
+  },
   "sidebar_action": {
     "default_title": "Job Summary",
     "default_panel": "sidebar.html",
